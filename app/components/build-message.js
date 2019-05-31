@@ -9,7 +9,7 @@ const { escapeExpression: escape } = Ember.Handlebars.Utils;
 export default Component.extend({
   readableMessage: computed('message.code', 'message.args', function () {
     let code = this.get('message.code');
-    let args = this.get('message.args');
+    let args = this.get('message.args') || {};
 
     if (this[code]) {
       return htmlSafe(this[code](args));

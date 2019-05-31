@@ -1,20 +1,28 @@
-<div class='inner-yaml-container'>
-  <div class='file-name'>
+{{#accordion.item as |accordionItem|}}
+  <div class='inner-yaml-container'>
     {{#if fileUrl}}
       {{#external-link-to href=fileUrl}}
-        {{svg-jar 'job-name-icon' class='icon' width=14 height=14}} <span class='vertical-align'>{{filePath}}</span>
+        {{svg-jar 'icon-external-link' class='icon-link'}}
       {{/external-link-to}}
-    {{else}}
-      {{svg-jar 'job-name-icon' class='icon' width=14 height=14}} <span class='vertical-align'>{{filePath}}</span>
     {{/if}}
-  </div>
-  <div class='position-relative'>
-    {{#code-block data-test-yaml language='yaml' class='codedisplay'}}{{rawConfig.config}}{{/code-block}}
-    {{#copy-button
-      clipboardText=rawConfig.config
-      title=buttonLabel
-      success=(action 'copied' rawConfig.source)}}
-      {{svg-jar 'icon-copy' class='icon'}} <span>{{buttonLabel}}</span>
-    {{/copy-button}}
-  </div>
+    {{#accordionItem.toggle}}
+      <div class='file-name'>
+        <span class='vertical-align'>{{filePath}}</span>
+        {{svg-jar 'icon-dropdown-arrow' class='icon-arrow'}}
+      </div>
+    {{/accordionItem.toggle}}
+    {{#accordionItem.panel}}
+    <div class='position-relative'>
+      {{#code-block data-test-yaml language='yaml' class='codedisplay'}}
+        {{rawConfig.config}}
+      {{/code-block}}
+      {{#copy-button
+        clipboardText=rawConfig.config
+        title=buttonLabel
+        success=(action 'copied' rawConfig.source)}}
+        {{svg-jar 'icon-copy' class='icon'}} <span>{{buttonLabel}}</span>
+      {{/copy-button}}
+    </div>
+  {{/accordionItem.panel}}
 </div>
+{{/accordion.item}}
