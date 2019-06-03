@@ -28,11 +28,9 @@
   }
 
   .icon-link {
-    width: $font-size-m;
-    float: left;
-    margin-top: 22px;
-    margin-left: 10px;
-    margin-right: 5px;
+    width: $font-size-sm;
+    margin-left: 5px;
+    vertical-align: middle;
   }
 
   .is-active {
@@ -58,16 +56,15 @@ pre.codedisplay[class*='language-'] {
 }
 
 .file-name {
-  padding: 1em;
+  padding: 0.6em;
   border-bottom: 1px solid $pebble-grey;
   color: $oxide-blue;
   background: $pebble-grey;
   font-size: $font-size-m;
 
   .icon-arrow {
-    width: $font-size-m;
+    width: $font-size-sm;
     float: right;
-    margin-top: 12px;
+    margin-top: -15px;
   }
 }
-
