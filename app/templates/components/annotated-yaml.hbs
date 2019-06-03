@@ -1,7 +1,7 @@
 {{build-messages-list request=@request viewMessage=(action (mut viewingMessage))}}
 
 <div class='raw-configs'>
-  {{#accordion-list as |accordion|}}
+  {{#accordion-list allowManyActiveItems=true as |accordion|}}
     {{#each @request.uniqRawConfigs as |rawConfig|}}
       {{raw-config accordion=accordion rawConfig=rawConfig build=@request.build slug=@request.repo.slug}}
     {{else}}
