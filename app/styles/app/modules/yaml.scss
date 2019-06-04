@@ -62,9 +62,18 @@ pre.codedisplay[class*='language-'] {
   background: $pebble-grey;
   font-size: $font-size-sm;
 
+  a {
+    color: $oxide-blue;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   .icon-arrow {
     width: $font-size-sm;
     float: right;
-    margin-top: -15px;
+    margin-top: -13px;
+    margin-right: 5px;
   }
 }
