@@ -1,6 +1,7 @@
 import { isEmpty } from '@ember/utils';
 import Component from '@ember/component';
 import { computed } from '@ember/object';
+import { reads } from '@ember/object/computed';
 
 export default Component.extend({
 
@@ -14,9 +15,9 @@ export default Component.extend({
     }
   },
 
-  tabTitle: computed('job.build.request.noYaml', function () {
-    if (this.get('job.build.request.noYaml')) { return null; }
+  noYaml: reads('job.build.request.noYaml'),
 
-    return 'Look at this job’s config';
+  tabTitle: computed('noYaml', function () {
+    return this.noYaml ? null : 'Look at this job’s config';
   })
 });
